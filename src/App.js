@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import { Switch, Route, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import HomePage from './pages/home/home.component';
+
+import githubLogo from './github_logo.png';
 import './App.css';
 
-function App() {
+const App = ({ page }) => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Link to={`/${page}`}>
+        <img className="logo" src={githubLogo} alt="Logo" />
+      </Link>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/:page" component={HomePage} />
+      </Switch>
     </div>
   );
-}
+};
 
-export default App;
+export default connect(null)(App);
