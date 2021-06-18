@@ -44,7 +44,6 @@ export const fetchRepositoriesStartAsync = () => {
     dispatch(fetchRepositoryStart());
     try {
       const jsonData = await axios.get('https://api.github.com/search/repositories', {
-        headers: { authorization: "token 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" },
         params: {
           q: `${nameSearch}+language:${languageSearch}`,
           sort: "stars",
