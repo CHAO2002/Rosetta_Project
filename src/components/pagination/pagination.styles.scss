@@ -1,0 +1,20 @@
+.pagination-container {
+  display        : flex;
+  flex-direction : row;
+  flex-wrap      : nowrap;
+  justify-content: center;
+  align-items    : center;
+  gap            : 10px;
+  padding        : 10px 0px;
+
+  svg {
+    cursor: pointer;
+  }
+
+  .page-string {
+    flex       : 0 0 auto;
+    font-family: Arial;
+    font-size  : 24px;
+    font-weight: 700;
+  }
+}

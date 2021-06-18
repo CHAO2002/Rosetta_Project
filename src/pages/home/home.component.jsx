@@ -1,25 +1,33 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import ControllPanel from '../../components/controll-panel/controll-panel.component';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import Collection from '../../components/collection/collection.component';
-import { Spin } from 'antd';
-import 'antd/es/spin/style/css';
+import Pagination from '../../components/pagination/pagination.component';
 
 import { fetchRepositoriesStartAsync } from '../../redux/repository/repository.actions';
 
 import './home.styles.scss';
 
-const HomePage = ({ isFetching, nameSearch, languageSearch, fetchRepositoriesStartAsync, ...props }) => {
+const HomePage = ({ fetchRepositoriesStartAsync, ...props }) => {
+  const { isFetching, nameSearch, languageSearch, searchOrder, pageIndex } = props;
+
   useEffect(() => {
     fetchRepositoriesStartAsync();
-  }, [fetchRepositoriesStartAsync, nameSearch, languageSearch]);
+  }, [fetchRepositoriesStartAsync, nameSearch, languageSearch, searchOrder, pageIndex]);
 
   return (
     <div>
-      <ControllPanel></ControllPanel>
       {
-        isFetching ? <Spin /> : <Collection />
+        isFetching ?
+          <div className="loading-content">
+            <CircularProgress />
+          </div> :
+          <div>
+            <Pagination />
+            <Collection />
+          </div>
       }
     </div>
   );
@@ -28,7 +36,9 @@ const HomePage = ({ isFetching, nameSearch, languageSearch, fetchRepositoriesSta
 const mapStateToProps = state => ({
   isFetching: state.repository.isFetching,
   nameSearch: state.repository.nameSearch,
-  languageSearch: state.repository.languageSearch
+  languageSearch: state.repository.languageSearch,
+  searchOrder: state.repository.searchOrder,
+  pageIndex: state.repository.pageIndex
 });
 
 const mapDispatchToProps = dispatch => ({

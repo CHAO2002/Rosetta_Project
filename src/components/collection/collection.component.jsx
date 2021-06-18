@@ -18,9 +18,9 @@ const Collection = ({ repositories }) => {
         <Table className="">
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Language</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Language</TableCell>
+              <TableCell>URL</TableCell>
               <TableCell align="right">Stargazers</TableCell>
               <TableCell align="right">Score</TableCell>
             </TableRow>
@@ -29,10 +29,10 @@ const Collection = ({ repositories }) => {
             {repositories ? (repositories.items.map((row) => (
               <TableRow key={row.id}>
                 <TableCell component="th" scope="row">
-                  {row.id}
+                  {row.name}
                 </TableCell>
-                <TableCell align="right">{row.name}</TableCell>
-                <TableCell align="right">{row.language}</TableCell>
+                <TableCell>{row.language}</TableCell>
+                <TableCell>{row.html_url}</TableCell>
                 <TableCell align="right">{row.stargazers_count}</TableCell>
                 <TableCell align="right">{row.score}</TableCell>
               </TableRow>

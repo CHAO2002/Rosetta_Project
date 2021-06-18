@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 25px;
+  padding: 15px;
+
+  > img {
+    flex: 0 0 auto;
+    width: 200px;
+  }
+
+  > div {
+    flex: 1 1 auto;
+  }
+}

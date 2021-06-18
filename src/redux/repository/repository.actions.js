@@ -16,20 +16,31 @@ export const fetchRepositoryFailure = error => ({
   payload: error
 });
 
-export const setNameSearch = text => ({
+export const setNameSearch = input => ({
   type: RepositoryActionTypes.SET_NAME_SEARCH,
-  payload: text
+  payload: input
 });
 
-export const setLanguageSearch = text => ({
+export const setLanguageSearch = input => ({
   type: RepositoryActionTypes.SET_LANGUAGE_SEARCH,
-  payload: text
+  payload: input
+});
+
+export const setSearchOrder = input => ({
+  type: RepositoryActionTypes.SET_SEARCH_ORDER,
+  payload: input
+});
+
+export const setPageIndex = index => ({
+  type: RepositoryActionTypes.SET_PAGE_INDEX,
+  payload: index
 });
 
 export const fetchRepositoriesStartAsync = () => {
   return async (dispatch, getState) => {
+    const perPage = 30;
     const { repository } = getState();
-    const { nameSearch, languageSearch } = repository;
+    const { nameSearch, languageSearch, searchOrder, pageIndex } = repository;
 
     dispatch(fetchRepositoryStart());
     try {
@@ -37,7 +48,8 @@ export const fetchRepositoriesStartAsync = () => {
         params: {
           q: `${nameSearch}+language:${languageSearch}`,
           sort: "stars",
-          order: "desc"
+          order: searchOrder,
+          page: pageIndex * perPage + 1
         }
       });
       dispatch(fetchRepositorySuccess(jsonData.data));

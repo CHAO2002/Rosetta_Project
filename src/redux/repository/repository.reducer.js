@@ -5,6 +5,8 @@ const INITIAL_STATE = {
   repositories: null,
   nameSearch: "",
   languageSearch: "",
+  searchOrder: "desc",
+  pageIndex: 0,
   errorMsg: undefined
 };
 
@@ -30,12 +32,25 @@ const repositoryReducer = (state = INITIAL_STATE, action) => {
     case RepositoryActionTypes.SET_NAME_SEARCH:
       return {
         ...state,
-        nameSearch: action.payload
+        nameSearch: action.payload,
+        pageIndex: 0
       };
     case RepositoryActionTypes.SET_LANGUAGE_SEARCH:
       return {
         ...state,
-        languageSearch: action.payload
+        languageSearch: action.payload,
+        pageIndex: 0
+      };
+    case RepositoryActionTypes.SET_SEARCH_ORDER:
+      return {
+        ...state,
+        searchOrder: action.payload,
+        pageIndex: 0
+      };
+    case RepositoryActionTypes.SET_PAGE_INDEX:
+      return {
+        ...state,
+        pageIndex: action.payload
       };
     default:
       return state;
