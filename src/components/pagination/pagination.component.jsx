@@ -11,14 +11,14 @@ const Pagination = ({ incomplete, pageIndex, setPageIndex }) => {
   return (
     <div className="pagination-container">
       {
-        pageIndex > 0 ?
+        pageIndex > 1 ?
           <KeyboardArrowLeftOutlinedIcon fontSize="large"
             onClick={() =>
               setPageIndex(pageIndex - 1)} />
           : null
       }
       <div className="page-string">
-        <span>Page {pageIndex + 1} </span>
+        <span>Page {pageIndex} </span>
       </div>
       {
         incomplete ? null :

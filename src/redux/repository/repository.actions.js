@@ -38,18 +38,18 @@ export const setPageIndex = index => ({
 
 export const fetchRepositoriesStartAsync = () => {
   return async (dispatch, getState) => {
-    const perPage = 30;
     const { repository } = getState();
     const { nameSearch, languageSearch, searchOrder, pageIndex } = repository;
 
     dispatch(fetchRepositoryStart());
     try {
       const jsonData = await axios.get('https://api.github.com/search/repositories', {
+        headers: { authorization: "token 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" },
         params: {
           q: `${nameSearch}+language:${languageSearch}`,
           sort: "stars",
           order: searchOrder,
-          page: pageIndex * perPage + 1
+          page: pageIndex
         }
       });
       dispatch(fetchRepositorySuccess(jsonData.data));
