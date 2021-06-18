@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Rosetta_Project/static/css/main.0123b221.chunk.css",
+    "main.js": "/Rosetta_Project/static/js/main.dbb19324.chunk.js",
+    "main.js.map": "/Rosetta_Project/static/js/main.dbb19324.chunk.js.map",
+    "runtime-main.js": "/Rosetta_Project/static/js/runtime-main.08b2ef48.js",
+    "runtime-main.js.map": "/Rosetta_Project/static/js/runtime-main.08b2ef48.js.map",
+    "static/js/2.bb932adc.chunk.js": "/Rosetta_Project/static/js/2.bb932adc.chunk.js",
+    "static/js/2.bb932adc.chunk.js.map": "/Rosetta_Project/static/js/2.bb932adc.chunk.js.map",
+    "static/js/3.1e519709.chunk.js": "/Rosetta_Project/static/js/3.1e519709.chunk.js",
+    "static/js/3.1e519709.chunk.js.map": "/Rosetta_Project/static/js/3.1e519709.chunk.js.map",
+    "index.html": "/Rosetta_Project/index.html",
+    "static/css/main.0123b221.chunk.css.map": "/Rosetta_Project/static/css/main.0123b221.chunk.css.map",
+    "static/js/2.bb932adc.chunk.js.LICENSE.txt": "/Rosetta_Project/static/js/2.bb932adc.chunk.js.LICENSE.txt",
+    "static/media/github_logo.88fb18a3.png": "/Rosetta_Project/static/media/github_logo.88fb18a3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.08b2ef48.js",
+    "static/js/2.bb932adc.chunk.js",
+    "static/css/main.0123b221.chunk.css",
+    "static/js/main.dbb19324.chunk.js"
+  ]
+}
